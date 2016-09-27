@@ -8,10 +8,11 @@
             <field name="name">dict.import.form</field>
             <field name="model">dict.import</field>
             <field name="arch" type="xml">
-                <form string="Dictionary Importr">
+                <form string="Dictionary Import">
                	    <group>
-	                    <label string="Dictionary to Import"/>
-	                    <field name="dict_text"/>
+	                    <label for="dict_text" string="Dictionary to Import"/>
+	                    <field name="dict_text" nolabel="1" colspan="2" widget="text"  />
+	                    <field name="data_file"/>
                      </group>
                      
                     <footer>
@@ -29,9 +30,9 @@
             <field name="res_model">dict.import</field>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
-            <field name="target">new</field>
             <field name="view_id" ref="view_dict_import_form"/>
         </record>
-        
+        <menuitem id="action_dict_import_migrate" name="Import &amp; Migration" parent="base.menu_custom" sequence="20" groups="base.group_no_one"/>
+        <menuitem action="action_dict_import" id="menu_dict_import" parent="action_dict_import_migrate"/>
 </data>
 </openerp>
