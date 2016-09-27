@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//dict_import/__init__.py=utf-8
+encoding//dict_import/__openerp__.py=utf-8
+encoding//dict_import/wizard/import_dict.py=utf-8

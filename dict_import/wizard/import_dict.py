@@ -67,6 +67,15 @@ class DictImport(models.TransientModel):
                     rec = self.env[d['model']].browse(d['data']['id'])
                     rec.write(d['data'])
 
+                if d['action'] == 'unlink':
+                    # get record and delete it
+                    rec = self.env[d['model']].browse(d['data']['id']).unlink()
+
+                if d['action'] == 'execute':
+                    # get record and execute the method
+                    rec = self.env[d['model']].browse(d['data']['id'])
+                    getattr(rec, d['data']['name'])()
+
                 # create external reference id
                 if iid:
                     self.env['ir.model.data'].create({'module': 'dict_import',
